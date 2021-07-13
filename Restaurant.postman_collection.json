@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "4fe00b3e-cf85-449a-bacc-e430ed68d291",
+		"name": "Restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RestaurantGET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"test_restaurants_get_reasults\", function(){\r",
+							"    pm.sendRequest({\r",
+							"        url:'http://localhost:8080/restaurant',\r",
+							"        method:'GET'\r",
+							"    },function(err, response){\r",
+							"pm.expect(response.code).to.equal(200);\r",
+							" pm.expect(response.json().length).to.equal(3)\r",
+							"    });\r",
+							"\r",
+							" });\r",
+							"        "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/restaurant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostRestaurants",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"test_restaurants_get_reasults\", function(){\r",
+							"    pm.sendRequest({\r",
+							"        url:'http://localhost:8080/restaurant',\r",
+							"        method:'POST'\r",
+							"    },function(err, response){\r",
+							"pm.expect(response.code).to.equal(200);\r",
+							" pm.expect(response.json().length).to.equal(4)\r",
+							"    });\r",
+							"\r",
+							" });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 4,\r\n        \"name\": \"orna\",\r\n        \"adress\": \"hadera\",\r\n        \"foodtype\":\"vietnamian\",\r\n        \"mealprice\":173\r\n        \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/restaurant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutRestaurants",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"test_restaurants_get_reasults\", function(){\r",
+							"    pm.sendRequest({\r",
+							"        url:'http://localhost:8080/restaurant/1',\r",
+							"        method:'PUT'\r",
+							"    },function(err, response){\r",
+							"pm.expect(response.code).to.equal(200);\r",
+							" pm.expect(response.json().mealprice).to.equal('55')\r",
+							"    });\r",
+							"\r",
+							" });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"name\":\"moshe\",\r\n        \"adress\": \"rehovot\",\r\n        \"foodtype\": \"meat\",\r\n        \"mealprice\": 55\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/restaurant/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaurant",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletRestaurants",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"test_retaurants_get_reasults\", function(){\r",
+							"    pm.sendRequest({\r",
+							"        url:'http://localhost:8080/restaurant',\r",
+							"        method:'DELET'\r",
+							"    },function(err, response){\r",
+							"pm.expect(response.code).to.equal(200);\r",
+							" pm.expect(response.json().length).to.equal(3)\r",
+							"    });\r",
+							"\r",
+							" });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/restaurant/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restaurant",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
